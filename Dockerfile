@@ -1,5 +1,6 @@
 FROM java:8
 COPY src /home/root/javahelloworld/src
-WORKDIR /home/root/javahelloworld
-RUN javac -d bin src/HelloWorld.java
-ENTRYPOINT ["java", "-cp", "bin", "HelloWorld"]
+RUN mkdir /home/root/javahelloworld/bin
+WORKDIR /home/root/javahelloworld/
+RUN javac src/HelloWorld.java -d bin/
+ENTRYPOINT ["java","-cp", "bin", "HelloWorld"] 
